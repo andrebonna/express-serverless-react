@@ -4,7 +4,7 @@
   "description": "AWSApi",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --quiet **/*.js",
+    "lint": "eslint --quiet src/**/*.js src/*.js",
     "test": "jest"
   },
   "pre-commit": [
@@ -13,18 +13,17 @@
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/*.js",
-      "!node_modules/**",
+      "src/**/*.js",
       "!**/*.spec.js"
     ],
     "coverageReporters": [
+      "lcov",
       "cobertura",
       "html"
     ],
     "testResultsProcessor": "./node_modules/jest-junit-reporter"
   },
   "dependencies": {
-    "mysql": "^2.13.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -40,7 +39,6 @@
     "jest": "^17.0.0",
     "jest-cli": "^17.0.0",
     "jest-junit-reporter": "^1.1.0",
-    "lambda-local": "^1.4.2",
     "pre-commit": "^1.2.2"
   }
 }

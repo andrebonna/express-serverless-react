@@ -1,0 +1,31 @@
+exports[`Auth Lambda Test Auth Allow 1`] = `
+Object {
+  "policyDocument": Object {
+    "Statement": Array [
+      Object {
+        "Action": "execute-api:Invoke",
+        "Effect": "Allow",
+        "Resource": "methodArnMock",
+      },
+    ],
+    "Version": "2012-10-17",
+  },
+  "principalId": "user",
+}
+`;
+
+exports[`Auth Lambda Test Auth Deny 1`] = `
+Object {
+  "policyDocument": Object {
+    "Statement": Array [
+      Object {
+        "Action": "execute-api:Invoke",
+        "Effect": "Deny",
+        "Resource": "methodArnMock",
+      },
+    ],
+    "Version": "2012-10-17",
+  },
+  "principalId": "testDeny",
+}
+`;
