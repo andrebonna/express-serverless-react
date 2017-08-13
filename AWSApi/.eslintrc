@@ -1,0 +1,25 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "google",
+        "eslint:recommended"
+    ],
+    "plugins": [
+        "json"
+    ],
+    "rules": {
+        "comma-dangle": [
+            2,
+            "never"
+        ],
+        "valid-jsdoc": 0,
+        "require-jsdoc": 0,
+        "padded-blocks": 0,
+        "no-undef": 0,
+        "max-len": 0
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 6
+    }
+}
