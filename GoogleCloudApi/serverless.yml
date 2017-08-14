@@ -1,9 +1,9 @@
-service: points
+service: api
 
 provider:
   name: google
   runtime: nodejs
-  project: my-project
+  project: daitan-demo-api
   # the path to the credentials file needs to be absolute
   credentials: ~/.gcloud/keyfile.json
 
@@ -16,8 +16,6 @@ package:
   exclude:
     - .gitignore
     - .git/**
-  include:
-  - ../node_modules/**
 
 functions:
   first:

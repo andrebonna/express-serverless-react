@@ -1,5 +1,5 @@
 {
-  "name": "azure-nodejs",
+  "name": "azure-api",
   "version": "1.0.0",
   "description": "Azure Functions sample for the Serverless framework",
   "main": "handler.js",
