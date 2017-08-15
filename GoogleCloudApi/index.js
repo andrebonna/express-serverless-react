@@ -1,7 +1,7 @@
 'use strict';
 
 exports.http = (request, response) => {
-  response.status(200).send(JSON.stringify(request, null, 2));
+  response.status(200).json(request.headers);
 };
 
 exports.event = (event, callback) => {
