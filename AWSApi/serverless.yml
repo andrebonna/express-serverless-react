@@ -20,6 +20,7 @@ service: api
 provider:
   name: aws
   runtime: nodejs6.10
+  region: sa-east-1
 
 # you can overwrite defaults here
 #stage: dev

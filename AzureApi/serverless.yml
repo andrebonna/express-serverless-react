@@ -19,11 +19,14 @@ service: daitan-demo-api
 
 provider:
   name: azure
-  location: West US
+  location: Brazil South
 
 plugins:
   - serverless-azure-functions
 
+package:
+ include:
+   - node_modules/**
 
 functions:
   hello:
