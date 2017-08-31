@@ -24,6 +24,10 @@
     "testResultsProcessor": "./node_modules/jest-junit-reporter"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "js-yaml": "^3.9.1",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
