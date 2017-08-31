@@ -61,7 +61,7 @@ function authorizerWrapper(func) {
             if (statement.Effect === 'Allow') {
                 return next();
             }
-            res.status(403).send('FORBIDDEN');
+            res.status(403).json({Message: 'User is not authorized to access this resource'});
         });
     };
 }
