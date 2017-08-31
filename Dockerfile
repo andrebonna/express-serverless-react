@@ -1,6 +1,7 @@
 FROM node
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV LOG_LEVEL info
+ENV PORT 3000
 
 WORKDIR /usr/src/app
 
