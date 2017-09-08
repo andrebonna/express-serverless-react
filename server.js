@@ -90,5 +90,5 @@ for (const key in functions) {
 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
-    logger.info(`Listening on port ${port}`);
+    logger.info(`Listening on http://localhost:${port}`);
 });
