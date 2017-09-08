@@ -1,5 +1,5 @@
 # Express-Serverless Template
-Hybrid NodeJS Server/Serverless API architecture Template. Code your API handlers using AWS Lambda syntax and bind your endpoints in serverless.yml. Since it's a NodeJS project, you can install any lib you want. 
+Hybrid NodeJS Server/Serverless API architecture Template. Code your API handlers using AWS Lambda syntax and bind your endpoints in serverless.yml. Since it's a NodeJS project, you can install any lib you want.
 
 Run it anywhere! 
 
@@ -11,7 +11,9 @@ Run it anywhere!
 - [Docker installed (optional)](https://docs.docker.com/engine/installation/)
 
 ## Create new API endpoints
-Inside `src` folder you will find all files containing [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html) functions. Following [serverless framework](https://serverless.com/framework/docs/providers/aws/guide/functions/) you can configure new endpoints in `serverless.yml` 
+Inside `src` folder you will find all files containing [AWS Lambda](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html) functions. 
+There is a POST example with a dumb authorizer step.
+Following [serverless framework](https://serverless.com/framework/docs/providers/aws/guide/functions/) you can configure new endpoints in `serverless.yml` 
 
 ## Deploy Template as Serverless
 ```
