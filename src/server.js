@@ -8,7 +8,9 @@ logger.level = process.env.LOG_LEVEL || 'info';
 
 const app = express();
 app.use(bodyParser.json());
-const { functions } = yaml.safeLoad(fs.readFileSync(`${__dirname}/serverless.yml`, 'utf8'));
+const { functions } = yaml.safeLoad(fs.readFileSync(`${__dirname}/../serverless.yml`, 'utf8'));
+
+app.use(express.static(`${__dirname}/public`));
 
 const handlerFunctions = mapHandlerFunctions(functions);
 
@@ -20,7 +22,7 @@ function mapHandlerFunctions(functions) {
             throw new Error(`Invalid function handler definition for ${key}`);
         }
         const [handlerFile, handlerName] = handler.split('.');
-        handlerFunctions[key] = require(`./${handlerFile}`)[handlerName];
+        handlerFunctions[key] = require(`../${handlerFile}`)[handlerName];
     }
 
     return handlerFunctions;
@@ -43,8 +45,18 @@ function httpHandlerWrapper(func) {
     return (req, res) => {
         const lambdaEvent = buildLambdaEvent(req);
 
-        func(lambdaEvent, null, (_, {statusCode, body})=>{
-            res.status(statusCode).set('Content-type', 'application/json').send(body);
+        func(lambdaEvent, null, (_, {statusCode, body, headers})=>{
+
+            res.status(statusCode);
+            if (headers) {
+                for (const key in headers) {
+                    res.set(key, headers[key]);
+                }
+            }
+            else {
+                res.set('Content-type', 'application/json');
+            }
+            res.send(body);
         });
     };
 }
