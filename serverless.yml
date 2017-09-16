@@ -5,7 +5,7 @@ provider:
   runtime: nodejs6.10
   region: sa-east-1
   environment:
-    CDN_PATH: ${env:CDN_PATH}
+    STATIC_PATH: ${env:STATIC_PATH}
 
 package:
   exclude:

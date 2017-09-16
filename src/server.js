@@ -6,11 +6,22 @@ const bodyParser = require('body-parser');
 
 logger.level = process.env.LOG_LEVEL || 'info';
 
+let splitPath;
+if (__dirname.includes('/src')) {
+    splitPath = __dirname.split('/src');
+}
+else {
+    splitPath = __dirname.split('/build/backend');
+}
+const [rootPath] = splitPath;
+
 const app = express();
 app.use(bodyParser.json());
-const { functions } = yaml.safeLoad(fs.readFileSync(`${__dirname}/../../serverless.yml`, 'utf8'));
+const { functions } = yaml.safeLoad(fs.readFileSync(`${rootPath}/serverless.yml`, 'utf8'));
 
-app.use(express.static(`${__dirname}/../client/public`));
+if (!process.env.DISABLE_STATIC_CONTENT) {
+    app.use(express.static(`${__dirname}/../client/public`));
+}
 
 const handlerFunctions = mapHandlerFunctions(functions);
 
@@ -22,7 +33,8 @@ function mapHandlerFunctions(functions) {
             throw new Error(`Invalid function handler definition for ${key}`);
         }
         const [handlerFile, handlerName] = handler.split('.');
-        handlerFunctions[key] = require(`../../${handlerFile}`)[handlerName];
+        const [, serverlessPath] = handlerFile.split('Serverless');
+        handlerFunctions[key] = require(`./Serverless${serverlessPath}`)[handlerName];
     }
 
     return handlerFunctions;

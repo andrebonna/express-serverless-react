@@ -6,7 +6,7 @@ import App from '../../View/containers/App';
 
 function headBuilder(title, metas) {
 
-    const cssBundle = `${process.env.CDN_PATH || ''}bundle.css`;
+    const cssBundle = `${process.env.STATIC_PATH || ''}bundle.css`;
     const head = React.createElement(Head, {
         title,
         metas,
@@ -21,7 +21,7 @@ function contentBuilder(props) {
 
 export default function templateBuilder({ title, metas, props }, callback) {
     const data = {
-        cdn_path: process.env.CDN_PATH || '',
+        static_path: process.env.STATIC_PATH || '',
         head: headBuilder(title, metas),
         content: contentBuilder(props)
     };

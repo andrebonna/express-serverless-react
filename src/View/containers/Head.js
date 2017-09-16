@@ -11,6 +11,7 @@ export default class Head extends Component {
         for (const key in metas) {
             metaTags.push(<meta key={key} name={key} content={metas[key]} />);
         }
+
         return (
             <head>
                 {[<title key='title'>{title}</title>].concat(metaTags)}

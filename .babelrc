@@ -2,5 +2,17 @@
     "presets": [
         "env",
         "react"
-    ]
+    ],
+    "env": {
+        "node": {
+            "plugins": [
+                [
+                    "babel-plugin-transform-require-ignore",
+                    {
+                        "extensions": [".css", ".scss"]
+                    }
+                ]
+            ]
+        }
+    }
 }

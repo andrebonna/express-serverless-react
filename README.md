@@ -18,8 +18,8 @@ Following [serverless framework](https://serverless.com/framework/docs/providers
 
 ## Environment Variables
 ```
-NODE_ENV: # defines your deployment environment (e.g. production)
-CDN_PATH: # Define CDN root path (AWS S3 bucket URL)
+NODE_ENV: # Define your deployment environment (e.g. production)
+STATIC_PATH: # Define CDN root path (AWS S3 bucket URL)
 BUCKET_NAME: # Define AWS S3 bucket name
 ```
 
@@ -30,7 +30,7 @@ BUCKET_NAME=<your-bucket-name> npm run deploy:client
 
 ## Deploy Backend Template as Serverless
 ```
-CDN_PATH=<path-to-your-s3-bucket> npm run deploy:backend
+STATIC_PATH=<path-to-your-s3-bucket> npm run deploy:backend
 ```
 
 ## Run Template on a local server
@@ -43,6 +43,16 @@ npm start
 ```
 docker build -t express-serverless .
 docker run -p 3000:3000 express-serverless
+```
+
+## Run server for development purposes
+```
+npm run dev:server
+```
+
+## Run webpack client for development purposes
+```
+npm run dev:client
 ```
 
 ## Run Unit Tests
