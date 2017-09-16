@@ -29,3 +29,19 @@ Object {
   "principalId": "testDeny",
 }
 `;
+
+exports[`Auth Lambda Test Auth Deny without token 1`] = `
+Object {
+  "policyDocument": Object {
+    "Statement": Array [
+      Object {
+        "Action": "execute-api:Invoke",
+        "Effect": "Deny",
+        "Resource": "methodArnMock",
+      },
+    ],
+    "Version": "2012-10-17",
+  },
+  "principalId": "anonymous",
+}
+`;

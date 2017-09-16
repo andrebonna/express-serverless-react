@@ -1,10 +1,13 @@
 {
     "parser": "babel-eslint",
     "extends": [
-        "google",
-        "eslint:recommended"
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended"
     ],
     "plugins": [
+        "react",
+        "jest",
         "json"
     ],
     "rules": {
@@ -15,11 +18,27 @@
         "valid-jsdoc": 0,
         "require-jsdoc": 0,
         "padded-blocks": 0,
-        "no-undef": 0,
-        "max-len": 0
+        "no-undef": 2,
+        "max-len": 0,
+        "jsx-a11y/href-no-hash": 0,
+        "import/no-dynamic-require": 0,
+        "import/newline-after-import": 0,
+        "import/prefer-default-export": 0,
+        "semi": 2,
+        "react/prefer-stateless-function": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-indent": 0,
+        "react/forbid-prop-types": 0,
+        "react/jsx-no-bind": 0
     },
     "parserOptions": {
         "sourceType": "module",
-        "ecmaVersion": 6
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "jest/globals": true
     }
 }

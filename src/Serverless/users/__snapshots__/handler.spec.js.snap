@@ -1,0 +1,12 @@
+exports[`Handler Lambdas Test Create Users 1`] = `"bodyMock"`;
+
+exports[`Handler Lambdas Test Get Users Page 1`] = `
+"<!DOCTYPE html>
+<html lang=\"en\">
+    <head data-reactroot=\"\" data-reactid=\"1\" data-react-checksum=\"-1418386197\"><title data-reactid=\"2\">Serverless Universal React</title></head>
+    <body class=\"container\">
+        <div id=\"content\"><div data-reactroot=\"\" data-reactid=\"1\" data-react-checksum=\"-1012498656\"><header data-reactid=\"2\"><h1 data-reactid=\"3\">Hello World App</h1></header><section data-reactid=\"4\"><p data-reactid=\"5\">Hello world!</p><button data-reactid=\"6\"><!-- react-text: 7 -->Count: <!-- /react-text --><!-- react-text: 8 -->0<!-- /react-text --></button></section><footer data-reactid=\"9\"><p data-reactid=\"10\">© André Bonna</p></footer></div></div>
+        <script src=\"bundle.js\"></script>
+    </body>
+</html>"
+`;
