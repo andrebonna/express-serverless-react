@@ -11,6 +11,7 @@ export function get(event, context, callback) {
         metas: event.queryStringParameters
     });
     const data = {
+        cdn_path: process.env.CDN_PATH || '',
         head: ReactDOMServer.renderToString(head),
         content: ReactDOMServer.renderToString(React.createElement(App))
     };

@@ -19,23 +19,21 @@ const webpackConfig = {
     },
     output: {
         filename: 'bundle.js',
-        path: `${__dirname}/build/public`
+        path: `${__dirname}/build/client/public`
     },
     resolve: {extensions: ['.js', '.json']},
-    plugins: [new CleanWebpackPlugin(['build/public'], {
+    plugins: [new CleanWebpackPlugin(['build/client/public'], {
         verbose: true
     })]
 };
 
 if (process.env.NODE_ENV === 'production') {
-    const time = new Date().getTime();
-    const stylesProd = new ExtractTextPlugin(`${time}-bundle.css`);
-    webpackConfig.output.filename = `${time}-bundle.js`;
+    const stylesProd = new ExtractTextPlugin('bundle.css');
     webpackConfig.plugins.push(stylesProd, new webpack.optimize.OccurrenceOrderPlugin(), new webpack.DefinePlugin({
         'process.env': {NODE_ENV: JSON.stringify('production')}
     }), new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}));
 } else {
-    const styles = new ExtractTextPlugin('app.css');
+    const styles = new ExtractTextPlugin('bundle.css');
     webpackConfig.plugins.push(styles);
 }
 

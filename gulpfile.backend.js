@@ -3,7 +3,7 @@ const babel = require('gulp-babel');
 const clean = require('gulp-clean');
 const sourceTranspile = ['src/**/*', '!src/**/*.spec.js', '!src/**/*.spec.js.snap', '!src/**/__snapshots__', '!src/**/*.ejs'];
 const sourceCopy = ['src/**/*.ejs'];
-const dest = 'build';
+const dest = 'build/backend';
 
 gulp.task('clean', ()=>{
     return gulp.src(dest).pipe(clean());

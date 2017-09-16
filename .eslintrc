@@ -1,7 +1,7 @@
 {
     "parser": "babel-eslint",
     "extends": [
-        "google",
+        "airbnb",
         "eslint:recommended",
         "plugin:react/recommended"
     ],
@@ -18,10 +18,17 @@
         "require-jsdoc": 0,
         "padded-blocks": 0,
         "no-undef": 0,
-        "max-len": 0
+        "max-len": 0,
+        "jsx-a11y/href-no-hash": 0,
+        "import/no-dynamic-require": 0,
+        "import/newline-after-import": 0,
+        "semi": 2
     },
     "parserOptions": {
         "sourceType": "module",
-        "ecmaVersion": 6
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        }
     }
 }

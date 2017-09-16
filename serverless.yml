@@ -4,26 +4,28 @@ provider:
   name: aws
   runtime: nodejs6.10
   region: sa-east-1
+  environment:
+    CDN_PATH: ${env:CDN_PATH}
 
 package:
   exclude:
     - "**/*"
     - "!node_modules/**"
-    - "!build/Serverless/**"
-    - "!build/View/**"
+    - "!build/backend/Serverless/**"
+    - "!build/backend/View/**"
     - "**/*.spec.js"
     - "**/*.spec.js.snap"
 
 functions:
   getUsers:
-    handler: build/Serverless/users/handler.get
+    handler: build/backend/Serverless/users/handler.get
     events:
       - http:
           path: users
           method: get
 
   createUsers:
-    handler: build/Serverless/users/handler.create
+    handler: build/backend/Serverless/users/handler.create
     events:
       - http:
           path: users
@@ -31,4 +33,4 @@ functions:
           authorizer: authorizerFunc
   
   authorizerFunc:
-    handler: build/Serverless/auth.authorizerFunc
+    handler: build/backend/Serverless/auth.authorizerFunc

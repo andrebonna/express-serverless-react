@@ -8,9 +8,9 @@ logger.level = process.env.LOG_LEVEL || 'info';
 
 const app = express();
 app.use(bodyParser.json());
-const { functions } = yaml.safeLoad(fs.readFileSync(`${__dirname}/../serverless.yml`, 'utf8'));
+const { functions } = yaml.safeLoad(fs.readFileSync(`${__dirname}/../../serverless.yml`, 'utf8'));
 
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/../client/public`));
 
 const handlerFunctions = mapHandlerFunctions(functions);
 
@@ -22,7 +22,7 @@ function mapHandlerFunctions(functions) {
             throw new Error(`Invalid function handler definition for ${key}`);
         }
         const [handlerFile, handlerName] = handler.split('.');
-        handlerFunctions[key] = require(`../${handlerFile}`)[handlerName];
+        handlerFunctions[key] = require(`../../${handlerFile}`)[handlerName];
     }
 
     return handlerFunctions;
