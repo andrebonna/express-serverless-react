@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './simple-counter.scss';
+
 
 export default class SimpleCounter extends Component {
     constructor() {
@@ -14,7 +16,7 @@ export default class SimpleCounter extends Component {
 
     render() {
         return (
-            <button onClick={this.incrementCount.bind(this)}>
+            <button className='increment-button' onClick={this.incrementCount.bind(this)}>
             Count: {this.state.count}
             </button>
         );

@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import ejs from 'ejs';
-import Head from '../../View/Head';
-import App from '../../View/App';
+import Head from '../../View/containers/Head';
+import App from '../../View/containers/App';
 
 function headBuilder(title, metas) {
+
+    const cssBundle = `${process.env.CDN_PATH || ''}bundle.css`;
     const head = React.createElement(Head, {
         title,
-        metas
+        metas,
+        cssBundle
     });
     return ReactDOMServer.renderToString(head);
 }
