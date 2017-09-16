@@ -13,7 +13,6 @@
     "deploy:backend": "npm run transpile && serverless deploy",
     "deploy:client": "npm run bundle && npm run upload:client"
   },
-  "eslintConfig": ".eslintrc",
   "pre-commit": [
     "lint"
   ],
