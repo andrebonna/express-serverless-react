@@ -6,7 +6,8 @@ export default class Head extends Component {
         const { title, metas, cssBundle } = this.props;
         
         const metaTags = [
-            <link key='cssBundle' rel='stylesheet' type='text/css' href={cssBundle} />
+            <link key='cssBundle' rel='stylesheet' type='text/css' href={cssBundle} />,
+            <meta key='viewport' name='viewport' content='width=device-width, initial-scale=1' />
         ];
         for (const key in metas) {
             metaTags.push(<meta key={key} name={key} content={metas[key]} />);

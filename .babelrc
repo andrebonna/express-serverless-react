@@ -3,6 +3,7 @@
         "env",
         "react"
     ],
+    "plugins": ["transform-object-rest-spread"],
     "env": {
         "node": {
             "plugins": [

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import NavHeader from '../components/NavHeader';
-import SimpleCounter from '../components/SimpleCounter';
-
-import './app.scss';
 
 export default class App extends Component {
     render() {
+        const { categories, children } = this.props;
+
         return (
             <div>
-                <NavHeader />
+                <NavHeader categories={categories} />
                 <section className='main-content'>
-                    <p>Hello world!</p>
-                    <SimpleCounter />
+                    {children}
                 </section>
                 <footer className='footer'>
                     <p>&copy; André Bonna</p>
@@ -20,3 +19,18 @@ export default class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    categories: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        href: PropTypes.string
+    })),
+    children: PropTypes.node.isRequired
+};
+
+App.defaultProps = {
+    categories: [{
+        name: 'All',
+        href: 'categories'
+    }]
+};

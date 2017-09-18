@@ -3,6 +3,9 @@
     <%- head %>
     <body>
         <div id="content"><%- content %></div>
+        <script type="text/javascript">
+            window.APP_PROPS = '<%- app_props %>';
+        </script>
         <script src="<%- static_path %>bundle.js"></script>
     </body>
 </html>

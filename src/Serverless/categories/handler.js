@@ -1,9 +1,15 @@
+import React from 'react';
 import templateBuilder from '../commons/templateBuilder';
+import constants from '../commons/constants';
+import Categories from '../../View/categories/Categories';
 
 export function get(event, context, callback) {
     templateBuilder({
-        title: 'Serverless Universal React', 
-        metas: event.queryStringParameters
+        title: 'Categories', 
+        metas: constants.metas,
+        props: {
+            children: <Categories />
+        }
     }, (err, data) => {
         const response = {
             statusCode: 200,
@@ -14,12 +20,4 @@ export function get(event, context, callback) {
         };
         callback(null, response);
     });
-}
-
-export function create(event, context, callback) {
-    const response = {
-        statusCode: 200,
-        body: event.body
-    };
-    callback(null, response);
 }

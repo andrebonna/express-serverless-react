@@ -17,20 +17,19 @@ package:
     - "**/*.spec.js.snap"
 
 functions:
-  getUsers:
-    handler: build/backend/Serverless/users/handler.get
+  getHome:
+    handler: build/backend/Serverless/home/handler.get
     events:
       - http:
-          path: users
+          path: home
           method: get
 
-  createUsers:
-    handler: build/backend/Serverless/users/handler.create
+  getCategories:
+    handler: build/backend/Serverless/categories/handler.get
     events:
       - http:
-          path: users
-          method: post
-          authorizer: authorizerFunc
+          path: categories
+          method: get
   
   authorizerFunc:
     handler: build/backend/Serverless/auth.authorizerFunc
