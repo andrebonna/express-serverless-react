@@ -13,16 +13,4 @@ describe('NavHeader', ()=>{
         const wrapper = shallow(<NavHeader {...props} />);
         expect(wrapper).toMatchSnapshot();
     });
-
-    it('menuItemClickAction', ()=>{
-        const props = {
-            categories: [{
-                name: 'nameMock',
-                href: 'hrefMock'
-            }]
-        };
-        const wrapper = shallow(<NavHeader {...props} />);
-        wrapper.find({ eventKey: '4' }).simulate('click');
-        expect(window.location.href).toBe('contact');
-    });
 });

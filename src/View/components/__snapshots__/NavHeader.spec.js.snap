@@ -6,175 +6,99 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <nav
-    className="navbar navbar-default navbar-fixed-top">
-    <div
-        className="container-fluid">
-        <div
-            className="navbar-header">
-            <div
-                className="navbar-toggle borderless collapsed">
-                <DropdownButton
-                    bsStyle="default"
-                    className="glyphicon glyphicon-menu-hamburger"
-                    id="hamburguer-menu"
-                    noCaret={true}
-                    pullRight={true}
-                    title="">
-                    <MenuItem
-                        bsClass="dropdown"
-                        disabled={false}
-                        divider={false}
-                        header={true}>
-                        Categories
-                    </MenuItem>
-                    <MenuItem
-                        bsClass="dropdown"
-                        disabled={false}
-                        divider={false}
-                        eventKey={0}
-                        header={false}
-                        onClick={[Function]}>
-                        nameMock
-                    </MenuItem>
-                    <MenuItem
-                        bsClass="dropdown"
-                        disabled={false}
-                        divider={true}
-                        header={false} />
-                    <MenuItem
-                        bsClass="dropdown"
-                        disabled={false}
-                        divider={false}
-                        eventKey="4"
-                        header={false}
-                        onClick={[Function]}>
-                        Contact Us
-                    </MenuItem>
-                </DropdownButton>
-            </div>
+  "node": <Uncontrolled(Navbar)
+    bsStyle="default"
+    collapseOnSelect={true}
+    fixedTop={true}
+    fluid={true}
+    inverse={true}>
+    <NavbarHeader>
+        <NavbarBrand>
             <a
-                className="navbar-brand"
-                href="home">
-                Universal React
+                href="#">
+                React-Bootstrap
             </a>
-        </div>
-        <div
-            className="navbar-collapse collapse">
-            <ul
-                className="nav navbar-nav navbar-right">
-                <li>
-                    <DropdownButton
-                        className="categories-dropdown"
-                        id="categories"
-                        noCaret={true}
+        </NavbarBrand>
+        <NavbarToggle />
+    </NavbarHeader>
+    <NavbarCollapse>
+        <Nav
+            bsClass="nav"
+            justified={false}
+            pullLeft={false}
+            pullRight={true}
+            stacked={false}>
+            <NavDropdown
+                eventKey={1}
+                id="basic-nav-dropdown"
+                title="Categories">
+                <MenuItem
+                    bsClass="dropdown"
+                    disabled={false}
+                    divider={false}
+                    eventKey="1.0"
+                    header={false}
+                    href="hrefMock">
+                    nameMock
+                </MenuItem>
+            </NavDropdown>
+            <NavItem
+                active={false}
+                disabled={false}
+                eventKey={2}
+                href="contact">
+                Contact Us
+            </NavItem>
+        </Nav>
+    </NavbarCollapse>
+</Uncontrolled(Navbar)>,
+  "nodes": Array [
+    <Uncontrolled(Navbar)
+      bsStyle="default"
+      collapseOnSelect={true}
+      fixedTop={true}
+      fluid={true}
+      inverse={true}>
+      <NavbarHeader>
+            <NavbarBrand>
+                  <a
+                        href="#">
+                        React-Bootstrap
+                  </a>
+            </NavbarBrand>
+            <NavbarToggle />
+      </NavbarHeader>
+      <NavbarCollapse>
+            <Nav
+                  bsClass="nav"
+                  justified={false}
+                  pullLeft={false}
+                  pullRight={true}
+                  stacked={false}>
+                  <NavDropdown
+                        eventKey={1}
+                        id="basic-nav-dropdown"
                         title="Categories">
                         <MenuItem
-                            bsClass="dropdown"
-                            disabled={false}
-                            divider={false}
-                            eventKey={0}
-                            header={false}
-                            onClick={[Function]}>
-                            nameMock
+                              bsClass="dropdown"
+                              disabled={false}
+                              divider={false}
+                              eventKey="1.0"
+                              header={false}
+                              href="hrefMock">
+                              nameMock
                         </MenuItem>
-                    </DropdownButton>
-                </li>
-                <li>
-                    <a
+                  </NavDropdown>
+                  <NavItem
+                        active={false}
+                        disabled={false}
+                        eventKey={2}
                         href="contact">
                         Contact Us
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>,
-  "nodes": Array [
-    <nav
-      className="navbar navbar-default navbar-fixed-top">
-      <div
-            className="container-fluid">
-            <div
-                  className="navbar-header">
-                  <div
-                        className="navbar-toggle borderless collapsed">
-                        <DropdownButton
-                              bsStyle="default"
-                              className="glyphicon glyphicon-menu-hamburger"
-                              id="hamburguer-menu"
-                              noCaret={true}
-                              pullRight={true}
-                              title="">
-                              <MenuItem
-                                    bsClass="dropdown"
-                                    disabled={false}
-                                    divider={false}
-                                    header={true}>
-                                    Categories
-                              </MenuItem>
-                              <MenuItem
-                                    bsClass="dropdown"
-                                    disabled={false}
-                                    divider={false}
-                                    eventKey={0}
-                                    header={false}
-                                    onClick={[Function]}>
-                                    nameMock
-                              </MenuItem>
-                              <MenuItem
-                                    bsClass="dropdown"
-                                    disabled={false}
-                                    divider={true}
-                                    header={false} />
-                              <MenuItem
-                                    bsClass="dropdown"
-                                    disabled={false}
-                                    divider={false}
-                                    eventKey="4"
-                                    header={false}
-                                    onClick={[Function]}>
-                                    Contact Us
-                              </MenuItem>
-                        </DropdownButton>
-                  </div>
-                  <a
-                        className="navbar-brand"
-                        href="home">
-                        Universal React
-                  </a>
-            </div>
-            <div
-                  className="navbar-collapse collapse">
-                  <ul
-                        className="nav navbar-nav navbar-right">
-                        <li>
-                              <DropdownButton
-                                    className="categories-dropdown"
-                                    id="categories"
-                                    noCaret={true}
-                                    title="Categories">
-                                    <MenuItem
-                                          bsClass="dropdown"
-                                          disabled={false}
-                                          divider={false}
-                                          eventKey={0}
-                                          header={false}
-                                          onClick={[Function]}>
-                                          nameMock
-                                    </MenuItem>
-                              </DropdownButton>
-                        </li>
-                        <li>
-                              <a
-                                    href="contact">
-                                    Contact Us
-                              </a>
-                        </li>
-                  </ul>
-            </div>
-      </div>
-</nav>,
+                  </NavItem>
+            </Nav>
+      </NavbarCollapse>
+</Uncontrolled(Navbar)>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -197,7 +121,6 @@ ShallowWrapper {
       "_instance": NavHeader {
         "_reactInternalInstance": [Circular],
         "context": Object {},
-        "menuItemClickAction": [Function],
         "props": Object {
           "categories": Array [
             Object {
@@ -207,6 +130,7 @@ ShallowWrapper {
           ],
         },
         "refs": Object {},
+        "renderCategories": [Function],
         "state": null,
         "updater": Object {
           "enqueueCallback": [Function],
@@ -226,177 +150,101 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <nav
-          className="navbar navbar-default navbar-fixed-top">
-          <div
-                    className="container-fluid">
-                    <div
-                              className="navbar-header">
-                              <div
-                                        className="navbar-toggle borderless collapsed">
-                                        <DropdownButton
-                                                  bsStyle="default"
-                                                  className="glyphicon glyphicon-menu-hamburger"
-                                                  id="hamburguer-menu"
-                                                  noCaret={true}
-                                                  pullRight={true}
-                                                  title="">
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            header={true}>
-                                                            Categories
-                                                  </MenuItem>
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            eventKey={0}
-                                                            header={false}
-                                                            onClick={[Function]}>
-                                                            nameMock
-                                                  </MenuItem>
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={true}
-                                                            header={false} />
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            eventKey="4"
-                                                            header={false}
-                                                            onClick={[Function]}>
-                                                            Contact Us
-                                                  </MenuItem>
-                                        </DropdownButton>
-                              </div>
+        "_currentElement": <Uncontrolled(Navbar)
+          bsStyle="default"
+          collapseOnSelect={true}
+          fixedTop={true}
+          fluid={true}
+          inverse={true}>
+          <NavbarHeader>
+                    <NavbarBrand>
                               <a
-                                        className="navbar-brand"
-                                        href="home">
-                                        Universal React
+                                        href="#">
+                                        React-Bootstrap
                               </a>
-                    </div>
-                    <div
-                              className="navbar-collapse collapse">
-                              <ul
-                                        className="nav navbar-nav navbar-right">
-                                        <li>
-                                                  <DropdownButton
-                                                            className="categories-dropdown"
-                                                            id="categories"
-                                                            noCaret={true}
-                                                            title="Categories">
-                                                            <MenuItem
-                                                                      bsClass="dropdown"
-                                                                      disabled={false}
-                                                                      divider={false}
-                                                                      eventKey={0}
-                                                                      header={false}
-                                                                      onClick={[Function]}>
-                                                                      nameMock
-                                                            </MenuItem>
-                                                  </DropdownButton>
-                                        </li>
-                                        <li>
-                                                  <a
-                                                            href="contact">
-                                                            Contact Us
-                                                  </a>
-                                        </li>
-                              </ul>
-                    </div>
-          </div>
-</nav>,
+                    </NavbarBrand>
+                    <NavbarToggle />
+          </NavbarHeader>
+          <NavbarCollapse>
+                    <Nav
+                              bsClass="nav"
+                              justified={false}
+                              pullLeft={false}
+                              pullRight={true}
+                              stacked={false}>
+                              <NavDropdown
+                                        eventKey={1}
+                                        id="basic-nav-dropdown"
+                                        title="Categories">
+                                        <MenuItem
+                                                  bsClass="dropdown"
+                                                  disabled={false}
+                                                  divider={false}
+                                                  eventKey="1.0"
+                                                  header={false}
+                                                  href="hrefMock">
+                                                  nameMock
+                                        </MenuItem>
+                              </NavDropdown>
+                              <NavItem
+                                        active={false}
+                                        disabled={false}
+                                        eventKey={2}
+                                        href="contact">
+                                        Contact Us
+                              </NavItem>
+                    </Nav>
+          </NavbarCollapse>
+</Uncontrolled(Navbar)>,
         "_debugID": 2,
-        "_renderedOutput": <nav
-          className="navbar navbar-default navbar-fixed-top">
-          <div
-                    className="container-fluid">
-                    <div
-                              className="navbar-header">
-                              <div
-                                        className="navbar-toggle borderless collapsed">
-                                        <DropdownButton
-                                                  bsStyle="default"
-                                                  className="glyphicon glyphicon-menu-hamburger"
-                                                  id="hamburguer-menu"
-                                                  noCaret={true}
-                                                  pullRight={true}
-                                                  title="">
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            header={true}>
-                                                            Categories
-                                                  </MenuItem>
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            eventKey={0}
-                                                            header={false}
-                                                            onClick={[Function]}>
-                                                            nameMock
-                                                  </MenuItem>
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={true}
-                                                            header={false} />
-                                                  <MenuItem
-                                                            bsClass="dropdown"
-                                                            disabled={false}
-                                                            divider={false}
-                                                            eventKey="4"
-                                                            header={false}
-                                                            onClick={[Function]}>
-                                                            Contact Us
-                                                  </MenuItem>
-                                        </DropdownButton>
-                              </div>
+        "_renderedOutput": <Uncontrolled(Navbar)
+          bsStyle="default"
+          collapseOnSelect={true}
+          fixedTop={true}
+          fluid={true}
+          inverse={true}>
+          <NavbarHeader>
+                    <NavbarBrand>
                               <a
-                                        className="navbar-brand"
-                                        href="home">
-                                        Universal React
+                                        href="#">
+                                        React-Bootstrap
                               </a>
-                    </div>
-                    <div
-                              className="navbar-collapse collapse">
-                              <ul
-                                        className="nav navbar-nav navbar-right">
-                                        <li>
-                                                  <DropdownButton
-                                                            className="categories-dropdown"
-                                                            id="categories"
-                                                            noCaret={true}
-                                                            title="Categories">
-                                                            <MenuItem
-                                                                      bsClass="dropdown"
-                                                                      disabled={false}
-                                                                      divider={false}
-                                                                      eventKey={0}
-                                                                      header={false}
-                                                                      onClick={[Function]}>
-                                                                      nameMock
-                                                            </MenuItem>
-                                                  </DropdownButton>
-                                        </li>
-                                        <li>
-                                                  <a
-                                                            href="contact">
-                                                            Contact Us
-                                                  </a>
-                                        </li>
-                              </ul>
-                    </div>
-          </div>
-</nav>,
+                    </NavbarBrand>
+                    <NavbarToggle />
+          </NavbarHeader>
+          <NavbarCollapse>
+                    <Nav
+                              bsClass="nav"
+                              justified={false}
+                              pullLeft={false}
+                              pullRight={true}
+                              stacked={false}>
+                              <NavDropdown
+                                        eventKey={1}
+                                        id="basic-nav-dropdown"
+                                        title="Categories">
+                                        <MenuItem
+                                                  bsClass="dropdown"
+                                                  disabled={false}
+                                                  divider={false}
+                                                  eventKey="1.0"
+                                                  header={false}
+                                                  href="hrefMock">
+                                                  nameMock
+                                        </MenuItem>
+                              </NavDropdown>
+                              <NavItem
+                                        active={false}
+                                        disabled={false}
+                                        eventKey={2}
+                                        href="contact">
+                                        Contact Us
+                              </NavItem>
+                    </Nav>
+          </NavbarCollapse>
+</Uncontrolled(Navbar)>,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
