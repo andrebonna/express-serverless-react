@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NavHeader from '../components/NavHeader';
 
+import './app.scss';
+
 export default class App extends Component {
     render() {
         const { categories, children } = this.props;

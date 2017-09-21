@@ -15,5 +15,7 @@ $nav-height: 60px;
 }
 
 .main-content {
-    padding-top: $nav-height;
+    display: inline-block;
+    padding-top: $nav-height + 1;
+    padding-bottom: 50px;
 }
