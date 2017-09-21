@@ -4,12 +4,12 @@ export default {
     },
     categories: [{
         name: 'All',
-        href: 'categories'
+        href: ''
     },{
         name: 'Urban',
-        href: 'categories?filter=urban'
+        href: '?filter=urban'
     },{
         name: 'Nature',
-        href: 'categories?filter=nature'
+        href: '?filter=nature'
     }]
 };

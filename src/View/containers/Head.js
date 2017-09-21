@@ -7,6 +7,7 @@ export default class Head extends Component {
         
         const metaTags = [
             <link key='cssBundle' rel='stylesheet' type='text/css' href={cssBundle} />,
+            <meta key='charset' charSet='UTF-8' />,
             <meta key='viewport' name='viewport' content='width=device-width, initial-scale=1' />
         ];
         for (const key in metas) {

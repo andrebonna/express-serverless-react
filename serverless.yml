@@ -21,14 +21,7 @@ functions:
     handler: build/backend/Serverless/home/handler.get
     events:
       - http:
-          path: home
-          method: get
-
-  getCategories:
-    handler: build/backend/Serverless/categories/handler.get
-    events:
-      - http:
-          path: categories
+          path: ''
           method: get
   
   authorizerFunc:

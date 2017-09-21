@@ -1,166 +1,22 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
-import Lightbox from 'react-images';
-import { CSSTransition } from 'react-transition-group';
-
 import './home.scss';
 
-const buildInitialState = ()=>{
-    return [
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ];
-};
-
-const getNumberOfColumns = (document) => {
-    const width = document.documentElement.clientWidth;
-    if (width <= 768) {
-        return 1;
-    }
-    else if (width > 768 && width <= 992) {
-        return 2;
-    }
-    else if (width > 992 && width <= 1200) {
-        return 4;
-    }
-    return 6;
-};
+import ImageGallery from '../components/ImageGallery';
 
 const IMAGES = [
-   
+    'http://wallpaperhey.com/Images/nature-image-for-iphone-Free-High-Resolution-Images.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFjJ6Jk2PQNu-ZRBQM2FkeiZFEwx8R5AifYX6OPe6kPjMsDbze',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQirrr799v2o08VIVZsWAlEL66GkPlCZ5cJNja2GrN1cTGAkC6s',
+    'https://i.pinimg.com/736x/5a/e9/50/5ae9501fc3b49810db7901873f77d6f7--beautiful-nature-photos-beautiful-days.jpg',
+    'https://i.ytimg.com/vi/kIS5SRuMg3c/hqdefault.jpg',
+    'https://i.ytimg.com/vi/x30YOmfeVTE/maxresdefault.jpg',
+    'https://images.pexels.com/photos/129441/pexels-photo-129441.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    'http://images.all-free-download.com/images/graphiclarge/trail_nature_landscape_214997.jpg',
+    'http://sim01.in.com/4fc598f2c9f2c0cdc5e0decc188d8d10_ft_xl.jpg'
 ];
 
 export default class Home extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.resize = this.resize.bind(this);
-        this.buildColumns = this.buildColumns.bind(this);
-        this.onClickImage = this.onClickImage.bind(this);
-        this.onCloseLightbox = this.onCloseLightbox.bind(this);
-        this.onClickPrev = this.onClickPrev.bind(this);
-        this.onClickNext = this.onClickNext.bind(this);
-        this.renderImage = this.renderImage.bind(this);
-
-        this.state = {
-            columns: buildInitialState(),
-            numberOfColumns: 0,
-            lightboxIsOpen: false,
-            currentImage: 0
-        };
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', this.resize);
-
-        this.buildColumns();
-    }
-
-    componentWillUnmount() {
-        window.querySelector('body').removeEventListener('resize', this.resize);
-    }
-
-    onClickImage(index) {
-        return () => {
-            this.setState({
-                lightboxIsOpen: true,
-                currentImage: index
-            });
-        };
-    }
-
-    onCloseLightbox() {
-        this.setState({
-            lightboxIsOpen: false
-        });
-    }
-
-    onClickPrev() {
-        const { currentImage } = this.state;
-        this.setState({
-            currentImage: currentImage - 1
-        });
-    }
-
-    onClickNext() {
-        const { currentImage } = this.state;
-        this.setState({
-            currentImage: currentImage + 1
-        });
-    }
-
-    buildColumns() {
-        const columns = buildInitialState();
-        const numColumns = getNumberOfColumns(document);
-
-        IMAGES.forEach((image, i) => {
-            columns[i % numColumns].push(this.renderImage(image, i));
-        });
-        
-        this.setState({ 
-            columns,
-            numberOfColumns: (12 / numColumns)
-        });
-    }
-
-    resize() {
-        (function step(){
-            clearTimeout(this.timeout);
-            this.timeout = setTimeout(this.buildColumns, 200);
-        }).call(this);
-    }
-
-    renderImage(image, index) {
-        return (
-            <CSSTransition in timeout={1000} classNames="image-fade" appear>
-                <div role='presentation' onClick={this.onClickImage(index)}>
-                    <img className='full-width' alt='' src={image} />
-                </div>
-            </CSSTransition>
-        );
-    }
-
-    renderColumns(index) {
-        const { columns, numberOfColumns } = this.state;
-        const i = numberOfColumns;
-
-        return (
-            <Col lg={i} md={i} sm={i} xs={i}>
-                {columns[index].map((image, i) => {    
-                    return (
-                        <Row className='row-spacing' key={`${index}.${i}`}>
-                            {image}
-                        </Row>
-                    );
-                })}
-            </Col>
-        );
-    }
-
     render() {
-        const { lightboxIsOpen, currentImage } = this.state;
-        return (
-            <div>
-                {this.renderColumns(0)}
-                {this.renderColumns(1)}
-                {this.renderColumns(2)}
-                {this.renderColumns(3)}
-                {this.renderColumns(4)}
-                {this.renderColumns(5)}
-                <Lightbox
-                    images={IMAGES.map(image=>({ src:image }))}
-                    isOpen={lightboxIsOpen}
-                    currentImage={currentImage}
-                    onClose={this.onCloseLightbox}
-                    onClickPrev={this.onClickPrev}
-                    onClickNext={this.onClickNext}
-                />
-            </div>
-        );
+        return <ImageGallery images={IMAGES} />;
     }
 }

@@ -20,10 +20,10 @@ export default class NavHeader extends Component {
 
     render() {
         return (
-            <Navbar inverse collapseOnSelect fluid fixedTop>
+            <Navbar inverse fluid fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">React-Bootstrap</a>
+                        <a href="">React-Bootstrap</a>
                     </Navbar.Brand>
                     
                     <Navbar.Toggle />
@@ -33,7 +33,7 @@ export default class NavHeader extends Component {
                         <NavDropdown eventKey={1} title="Categories" id="basic-nav-dropdown">
                             {this.renderCategories(1)}
                         </NavDropdown>
-                        <NavItem eventKey={2} href="contact">Contact Us</NavItem>
+                        <NavItem role='link' eventKey={2} href="contact">Contact Us</NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar> 
