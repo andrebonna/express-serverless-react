@@ -23,6 +23,13 @@ functions:
       - http:
           path: ''
           method: get
+
+  getCategories:
+    handler: build/backend/Serverless/home/handler.get
+    events:
+      - http:
+          path: 'categories'
+          method: get
   
   authorizerFunc:
     handler: build/backend/Serverless/auth.authorizerFunc

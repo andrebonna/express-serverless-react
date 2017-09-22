@@ -2,7 +2,14 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
 const deleteLines = require('gulp-delete-lines');
-const sourceTranspile = ['src/**/*', '!src/**/*.scss', '!src/**/*.spec.js', '!src/**/*.spec.js.snap', '!src/**/__snapshots__', '!src/**/*.ejs'];
+const sourceTranspile = [
+    'src/**/*', 
+    '!src/**/*.scss', 
+    '!src/**/*.spec.js', 
+    '!src/**/*.spec.js.snap', 
+    '!src/**/__snapshots__', 
+    '!src/**/*.ejs'
+];
 const sourceCopy = ['src/**/*.ejs'];
 const dest = 'build/backend';
 

@@ -14,21 +14,28 @@ export default class NavHeader extends Component {
         const { categories } = this.props;
 
         return categories.map((category, i)=>{
-            return <MenuItem key={category.name} eventKey={`${eventKeyPrefix}.${i}`} href={category.href}>{category.name}</MenuItem>;
+            return (
+                <MenuItem 
+                    key={category.name} 
+                    eventKey={`${eventKeyPrefix}.${i}`} 
+                    href={category.href}
+                >
+                    {category.name}
+                </MenuItem>
+            );
         });
     }
 
     render() {
         return (
-            <Navbar inverse fluid fixedTop>
+            <Navbar fluid fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="">React-Bootstrap</a>
                     </Navbar.Brand>
-                    
                     <Navbar.Toggle />
                 </Navbar.Header>
-                 <Navbar.Collapse>
+                <Navbar.Collapse>
                     <Nav pullRight>
                         <NavDropdown eventKey={1} title="Categories" id="basic-nav-dropdown">
                             {this.renderCategories(1)}

@@ -17,18 +17,18 @@ const buildInitialState = ()=>{
     ];
 };
 
-const getNumberOfColumns = (document) => {
+const getNumberOfColumns = (document, maxSize) => {
     const width = document.documentElement.clientWidth;
     if (width <= 768) {
-        return 1;
+        return maxSize/maxSize;
     }
     else if (width > 768 && width <= 992) {
-        return 2;
+        return Math.ceil(maxSize/3);
     }
     else if (width > 992 && width <= 1200) {
-        return 4;
+        return Math.ceil((2*maxSize)/3);
     }
-    return 6;
+    return maxSize;
 };
 
 export default class ImageGallery extends Component {
@@ -54,7 +54,6 @@ export default class ImageGallery extends Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.resize);
-
         this.buildColumns();
     }
 
@@ -92,9 +91,9 @@ export default class ImageGallery extends Component {
     }
 
     buildColumns() {
-        const { images } = this.props;
+        const { images, maxNumberOfColumns } = this.props;
         const columns = buildInitialState();
-        const numColumns = getNumberOfColumns(document);
+        const numColumns = getNumberOfColumns(document, maxNumberOfColumns);
 
         images.forEach((image, i) => {
             columns[i % numColumns].push(this.renderImage(image, i));
@@ -102,7 +101,7 @@ export default class ImageGallery extends Component {
         
         this.setState({ 
             columns,
-            numberOfColumns: (12 / numColumns)
+            numberOfColumns: 12 / numColumns
         });
     }
 
@@ -123,34 +122,35 @@ export default class ImageGallery extends Component {
         );
     }
 
-    renderColumns(index) {
-        const { columns, numberOfColumns } = this.state;
-        const i = numberOfColumns;
-
-        return (
-            <Col lg={i} md={i} sm={i} xs={i}>
-                {columns[index].map((image, i) => {    
-                    return (
-                        <Row className='row-spacing' key={`${index}.${i}`}>
-                            {image}
-                        </Row>
-                    );
-                })}
-            </Col>
-        );
+    renderColumns(maxSize) {
+        const columnsBuilded = [];
+        for (let index=0; index < maxSize; index++) {
+            const { columns, numberOfColumns } = this.state;
+            const i = numberOfColumns;
+    
+            if (columns[index].length) {
+                columnsBuilded.push(
+                    <Col lg={i} md={i} sm={i} xs={i} key={`${index}`}>
+                        {columns[index].map((image, i) => {    
+                            return (
+                                <Row className='row-spacing' key={`${index}.${i}`}>
+                                    {image}
+                                </Row>
+                            );
+                        })}
+                    </Col>
+                );
+            }
+        }
+        return columnsBuilded;
     }
 
     render() {
-        const { images } = this.props;
+        const { images, maxNumberOfColumns } = this.props;
         const { lightboxIsOpen, currentImage } = this.state;
         return (
             <div>
-                {this.renderColumns(0)}
-                {this.renderColumns(1)}
-                {this.renderColumns(2)}
-                {this.renderColumns(3)}
-                {this.renderColumns(4)}
-                {this.renderColumns(5)}
+                {this.renderColumns(maxNumberOfColumns)}
                 <Lightbox
                     images={images.map(image=>({ src:image }))}
                     isOpen={lightboxIsOpen}
@@ -165,9 +165,11 @@ export default class ImageGallery extends Component {
 }
 
 ImageGallery.propTypes = {
-    images: PropTypes.array
+    images: PropTypes.array,
+    maxNumberOfColumns: PropTypes.oneOf([1,2,3,4,6])
 };
 
 ImageGallery.defaultProps = {
-    images: []
+    images: [],
+    maxNumberOfColumns: 4
 };

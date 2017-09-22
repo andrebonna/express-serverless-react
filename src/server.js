@@ -100,13 +100,20 @@ for (const key in functions) {
                 const { method = 'all', path, authorizer } = http;
                 
                 if (authorizer) {
-                    app[method](`/${path}`, authorizerWrapper(handlerFunctions[authorizer]), httpHandlerWrapper(handlerFunctions[key]));
+                    app[method](
+                        `/${path}`, 
+                        authorizerWrapper(handlerFunctions[authorizer]), 
+                        httpHandlerWrapper(handlerFunctions[key])
+                    );
                 }
                 else {
                     app[method](`/${path}`, httpHandlerWrapper(handlerFunctions[key]));
                     
                 }
-                logger.info(`Route configured => Path: /${path}, Method: ${method.toUpperCase()}, Handler: ${key}, Authorizer: ${authorizer || 'public'}`);
+                logger.info(`Route configured => Path: /${path}, ` +
+                    `Method: ${method.toUpperCase()}, ` +
+                    `Handler: ${key}, ` +
+                    `Authorizer: ${authorizer || 'public'}`);
             } 
         }
     }
