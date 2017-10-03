@@ -6,7 +6,11 @@ import { CSSTransition } from 'react-transition-group';
 
 import './image-gallery.scss';
 
-const buildInitialState = ()=>{
+const SMALL_DROP = 768;
+const MEDIUM_DROP = 992;
+const FULL_DROP = 1200;
+
+const buildInitialState = () => {
     return [
         [],
         [],
@@ -19,14 +23,14 @@ const buildInitialState = ()=>{
 
 const getNumberOfColumns = (document, maxSize) => {
     const width = document.documentElement.clientWidth;
-    if (width <= 768) {
-        return maxSize/maxSize;
+    if (width <= SMALL_DROP) {
+        return maxSize / maxSize;
     }
-    else if (width > 768 && width <= 992) {
-        return Math.ceil(maxSize/3);
+    else if (width > SMALL_DROP && width <= MEDIUM_DROP) {
+        return Math.ceil(maxSize / 3);
     }
-    else if (width > 992 && width <= 1200) {
-        return Math.ceil((2*maxSize)/3);
+    else if (width > MEDIUM_DROP && width <= FULL_DROP) {
+        return Math.ceil((2 * maxSize) / 3);
     }
     return maxSize;
 };
@@ -98,15 +102,15 @@ export default class ImageGallery extends Component {
         images.forEach((image, i) => {
             columns[i % numColumns].push(this.renderImage(image, i));
         });
-        
-        this.setState({ 
+
+        this.setState({
             columns,
             numberOfColumns: 12 / numColumns
         });
     }
 
     resize() {
-        (function step(){
+        (function step() {
             clearTimeout(this.timeout);
             this.timeout = setTimeout(this.buildColumns, 200);
         }).call(this);
@@ -116,7 +120,7 @@ export default class ImageGallery extends Component {
         return (
             <CSSTransition in timeout={1000} classNames="image-fade" appear>
                 <div role='presentation' onClick={this.onClickImage(index)}>
-                    <img className='full-width' alt='' src={image} />
+                    <img className='full-width' alt='' src={image.URL} title={image.Name} />
                 </div>
             </CSSTransition>
         );
@@ -124,14 +128,14 @@ export default class ImageGallery extends Component {
 
     renderColumns(maxSize) {
         const columnsBuilded = [];
-        for (let index=0; index < maxSize; index++) {
+        for (let index = 0; index < maxSize; index++) {
             const { columns, numberOfColumns } = this.state;
             const i = numberOfColumns;
-    
+
             if (columns[index].length) {
                 columnsBuilded.push(
                     <Col lg={i} md={i} sm={i} xs={i} key={`${index}`}>
-                        {columns[index].map((image, i) => {    
+                        {columns[index].map((image, i) => {
                             return (
                                 <Row className='row-spacing' key={`${index}.${i}`}>
                                     {image}
@@ -152,7 +156,7 @@ export default class ImageGallery extends Component {
             <div>
                 {this.renderColumns(maxNumberOfColumns)}
                 <Lightbox
-                    images={images.map(image=>({ src:image }))}
+                    images={images.map(image => ({ src: image.URL, caption: image.Name }))}
                     isOpen={lightboxIsOpen}
                     currentImage={currentImage}
                     onClose={this.onCloseLightbox}
@@ -166,7 +170,7 @@ export default class ImageGallery extends Component {
 
 ImageGallery.propTypes = {
     images: PropTypes.array,
-    maxNumberOfColumns: PropTypes.oneOf([1,2,3,4,6])
+    maxNumberOfColumns: PropTypes.oneOf([1, 2, 3, 4, 6])
 };
 
 ImageGallery.defaultProps = {

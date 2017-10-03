@@ -4,7 +4,8 @@ if (!process.env.BUCKET_NAME) {
 const fs = require('fs');
 const gulp = require('gulp');
 const yaml = require('js-yaml');
-const { 
+const gzip = require('gulp-gzip');
+const {
     provider: {
         region
     }
@@ -12,13 +13,15 @@ const {
 
 const s3 = require('gulp-s3-upload')({ region });
 
-gulp.task("default", function() {
-    gulp.src("./build/client/public/**").pipe(s3({
-        Bucket: process.env.BUCKET_NAME,
-        ACL: 'public-read'
-    },{
-        maxRetries: 5
-    }));
+gulp.task("default", function () {
+    gulp.src("./build/client/public/**").pipe(gzip({ append: false }))
+        .pipe(s3({
+            Bucket: process.env.BUCKET_NAME,
+            ACL: 'public-read',
+            manualContentEncoding: 'gzip'
+        }, {
+            maxRetries: 5
+        }));
 });
 
 

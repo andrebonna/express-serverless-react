@@ -20,6 +20,7 @@ Following [serverless framework](https://serverless.com/framework/docs/providers
 ```
 NODE_ENV: # Define your deployment environment (e.g. production)
 STATIC_PATH: # Define CDN root path (AWS S3 bucket URL)
+DYNAMODB_TABLE: # Name of dynamoDB photos table
 BUCKET_NAME: # Define AWS S3 bucket name
 ```
 
@@ -30,7 +31,7 @@ BUCKET_NAME=<your-bucket-name> npm run deploy:client
 
 ## Deploy Backend Template as Serverless
 ```
-STATIC_PATH=<path-to-your-s3-bucket> npm run deploy:backend
+STATIC_PATH=<path-to-your-s3-bucket> DYNAMODB_TABLE=<name-of-dynamoDB-table> npm run deploy:backend
 ```
 
 ## Run Template on a local server
