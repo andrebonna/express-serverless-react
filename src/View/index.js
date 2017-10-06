@@ -10,7 +10,7 @@ const pages = {
 
 const props = JSON.parse(window.APP_PROPS);
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <App {...props} >
         {React.createElement(pages[props.page], props.children.props)}
     </App>, document.getElementById('content')

@@ -23,6 +23,8 @@
         "max-len": [1, 120],
         "indent": [2, 4],
         "jsx-a11y/href-no-hash": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/anchor-is-valid": 0,
         "import/no-dynamic-require": 0,
         "import/newline-after-import": 0,
         "import/prefer-default-export": 0,
