@@ -2,17 +2,17 @@ import React from 'react';
 import templateBuilder from './templateBuilder';
 import Home from '../../View/home/Home';
 
-describe('Test template Builder', ()=>{
-    it('templateBuilder with options', (done)=>{
+describe('Test template Builder', () => {
+    it('templateBuilder with options', (done) => {
         templateBuilder({
             title: 'titleMock',
             metas: {
                 metaMock: 'metaContentMock'
             },
             props: {
-                children: <Home />
+                children: <Home images={[]} />
             }
-        }, (err, content)=>{
+        }, (err, content) => {
             expect(content).toMatchSnapshot();
             done();
         });
