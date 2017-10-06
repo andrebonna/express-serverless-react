@@ -7,7 +7,8 @@ const sourceTranspile = [
     '!src/**/*.scss', 
     '!src/**/*.spec.js', 
     '!src/**/*.spec.js.snap', 
-    '!src/**/__snapshots__', 
+    '!src/**/__snapshots__',
+    '!src/**/__mocks__/*',
     '!src/**/*.ejs'
 ];
 const sourceCopy = ['src/**/*.ejs'];

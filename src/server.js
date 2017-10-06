@@ -57,8 +57,12 @@ function httpHandlerWrapper(func) {
     return (req, res) => {
         const lambdaEvent = buildLambdaEvent(req);
 
-        func(lambdaEvent, null, (_, {statusCode, body, headers})=>{
+        func(lambdaEvent, null, (err, response)=>{
 
+            if (err) {
+                return res.status(500).send('Unexpected Error! Try Again.');
+            }
+            const {statusCode, body, headers} = response;
             res.status(statusCode);
             if (headers) {
                 for (const key in headers) {

@@ -11,5 +11,8 @@ export default {
     },{
         name: 'Nature',
         href: 'categories?filter=nature'
+    },{
+        name: 'Animals',
+        href: 'categories?filter=animals'
     }]
 };

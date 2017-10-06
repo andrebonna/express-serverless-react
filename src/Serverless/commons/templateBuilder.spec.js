@@ -10,6 +10,7 @@ describe('Test template Builder', () => {
                 metaMock: 'metaContentMock'
             },
             props: {
+                categories: [],
                 children: <Home images={[]} />
             }
         }, (err, content) => {

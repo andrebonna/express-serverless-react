@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import ejs from 'ejs';
 import Head from '../../View/containers/Head';
 import App from '../../View/containers/App';
-import constants from '../commons/constants';
 
 function headBuilder(title, metas) {
 
@@ -25,9 +24,18 @@ export default function templateBuilder({ title, metas, props }, callback) {
     //Enrich Props
     props = {
         ...props,
-        categories: constants.categories
+        categories: [
+            {
+                name: 'All',
+                href: 'categories'
+            }, 
+            ...props.categories.map(category => ({
+                name: category,
+                href: `categories?filter=${category}`
+            }))
+        ]
     };
-    
+
     const data = {
         static_path: process.env.STATIC_PATH || '',
         head: headBuilder(title, metas),
