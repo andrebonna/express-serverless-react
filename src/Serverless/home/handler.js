@@ -29,5 +29,4 @@ export function get(event, context, callback) {
         });
         
     });
-    
 }

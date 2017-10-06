@@ -21,7 +21,7 @@ const buildInitialState = () => {
     ];
 };
 
-const getNumberOfColumns = (document, maxSize) => {
+function getNumberOfColumns(document, maxSize) {
     const width = document.documentElement.clientWidth;
     if (width <= SMALL_DROP) {
         return maxSize / maxSize;
@@ -33,7 +33,15 @@ const getNumberOfColumns = (document, maxSize) => {
         return Math.ceil((2 * maxSize) / 3);
     }
     return maxSize;
-};
+}
+
+function getSrcSet(urls) {
+    return urls.map((url)=>{
+        const regex = /-([0-9]+)\.png/;
+        const width = url.match(regex)[1];
+        return `${url} ${width}w`;
+    });
+}
 
 export default class ImageGallery extends Component {
 
@@ -94,6 +102,17 @@ export default class ImageGallery extends Component {
         });
     }
 
+    getImages() {
+        const { images } = this.props;
+
+        const imagesMap = images.map(image => ({ 
+            src: image.URLs[0],
+            srcset: getSrcSet(image.URLs),
+            caption: image.Description
+        }));
+        return imagesMap;
+    }
+
     buildColumns() {
         const { images, maxNumberOfColumns } = this.props;
         const columns = buildInitialState();
@@ -120,7 +139,7 @@ export default class ImageGallery extends Component {
         return (
             <CSSTransition in timeout={1000} classNames="image-fade" appear>
                 <div role='presentation' onClick={this.onClickImage(index)}>
-                    <img className='full-width' alt='' src={image.URL} title={image.Name} />
+                    <img className='full-width' alt='' src={image.URLs[1]} title={image.Name} />
                 </div>
             </CSSTransition>
         );
@@ -150,13 +169,13 @@ export default class ImageGallery extends Component {
     }
 
     render() {
-        const { images, maxNumberOfColumns } = this.props;
+        const { maxNumberOfColumns } = this.props;
         const { lightboxIsOpen, currentImage } = this.state;
         return (
             <div>
                 {this.renderColumns(maxNumberOfColumns)}
                 <Lightbox
-                    images={images.map(image => ({ src: image.URL, caption: image.Name }))}
+                    images={this.getImages()}
                     isOpen={lightboxIsOpen}
                     currentImage={currentImage}
                     onClose={this.onCloseLightbox}
