@@ -12,7 +12,7 @@ export default class NavHeader extends Component {
 
     renderCategories(eventKeyPrefix) {
         const { categories } = this.props;
-
+        
         return categories.map((category, i)=>{
             return (
                 <MenuItem 

@@ -139,7 +139,7 @@ export default class ImageGallery extends Component {
         return (
             <CSSTransition in timeout={1000} classNames="image-fade" appear>
                 <div role='presentation' onClick={this.onClickImage(index)}>
-                    <img className='full-width' alt='' src={image.URLs[1]} title={image.Name} />
+                    <img className='full-width' alt='' src={image.URLs[1]} title={image.Title} />
                 </div>
             </CSSTransition>
         );
