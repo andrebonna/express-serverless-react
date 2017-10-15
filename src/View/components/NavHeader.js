@@ -31,7 +31,7 @@ export default class NavHeader extends Component {
             <Navbar fluid fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="">React-Bootstrap</a>
+                        <a href="">React-Serverless</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>

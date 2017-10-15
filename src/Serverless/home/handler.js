@@ -54,7 +54,7 @@ export function get(event, context, callback) {
         .then(getCategories)
         .then(({data, categories}) => {
             templateBuilder({
-                title: 'Andréa Buck Photos',
+                title: 'React-Serverless',
                 metas: constants.metas,
                 props: {
                     categories,
