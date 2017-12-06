@@ -60,6 +60,7 @@ function httpHandlerWrapper(func) {
         func(lambdaEvent, null, (err, response)=>{
 
             if (err) {
+                logger.error(err);
                 return res.status(500).send('Unexpected Error! Try Again.');
             }
             const {statusCode, body, headers} = response;
